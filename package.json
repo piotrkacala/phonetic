@@ -1,5 +1,6 @@
 {
   "name": "myfirstreactapp",
+  "homepage": "https://piotrkacala.github.io/phonetic/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
