@@ -1,0 +1,59 @@
+{
+  "name": "phonetic-trainer",
+  "homepage": "https://piotrkacala.github.io/phonetic/",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive phonetic alphabet trainer for NATO and Polish alphabets.",
+  "license": "GPL-3.0-only",
+  "author": "Piotr Kacala",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotrkacala/phonetic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/piotrkacala/phonetic/issues"
+  },
+  "keywords": [
+    "phonetic",
+    "nato",
+    "polish",
+    "quiz",
+    "react",
+    "vite"
+  ],
+  "type": "module",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^13.4.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^15.15.0",
+    "gh-pages": "^6.1.0",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.5.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  }
+}
