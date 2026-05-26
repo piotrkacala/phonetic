@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Unreleased
+
+### Added
+
+- Added Polish `Ó` mapping to `ÓSEMKA` with dedicated multiple-choice distractors.
+
 ## [1.0.0] - 2026-02-26
 
 ### Added
@@ -23,4 +29,3 @@ All notable changes to this project are documented in this file.
 - Prevented setup step visual state leakage between runs.
 - Removed layout jumps on hint and feedback rendering.
 - Hardened localStorage read/write failure handling.
-

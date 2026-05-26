@@ -80,6 +80,10 @@ export const polish = [
     txt: "OLGA",
   },
   {
+    char: "Ó",
+    txt: "ÓSEMKA",
+  },
+  {
     char: "P",
     txt: "PAWEŁ",
   },
@@ -294,6 +298,7 @@ export const polishDistractors = {
   N: ["NORA", "NUTA", "NOC", "NARCIARZ"],
   Ń: ["KOŃCOWY", "PAŃSTWO", "SŁOŃCE", "GOŃ"],
   O: ["OKNO", "OLA", "OGIEŃ", "ORZECH"],
+  Ó: ["ŁÓDŹ", "ÓWCZESNY", "MIÓD", "WZÓR"],
   P: ["PIOTR", "PILOT", "POLE", "PŁOT"],
   Q: ["QUASAR", "QUAD", "QUART", "QUICK"],
   R: ["RAFAŁ", "RANEK", "RZEKA", "ROTOR"],

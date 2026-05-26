@@ -1,7 +1,21 @@
 import { buildMcqOptions } from './questionBuilder';
 import { normalizeAnswer } from './normalize';
+import { polish, polishDistractors } from '../data';
 
 describe('buildMcqOptions', () => {
+  test('Polish alphabet includes Ó as ÓSEMKA between O and P', () => {
+    expect(polish).toContainEqual({ char: 'Ó', txt: 'ÓSEMKA' });
+
+    const letters = polish.map((item) => item.char);
+    expect(letters.indexOf('O')).toBeLessThan(letters.indexOf('Ó'));
+    expect(letters.indexOf('Ó')).toBeLessThan(letters.indexOf('P'));
+  });
+
+  test('Polish Ó distractors use exact Ó examples', () => {
+    expect(polishDistractors['Ó']).toEqual(expect.arrayContaining(['ŁÓDŹ', 'ÓWCZESNY']));
+    polishDistractors['Ó'].forEach((word) => expect(word).toContain('Ó'));
+  });
+
   test('uses same-letter distractors when available', () => {
     const question = { char: 'A', txt: 'ALFA' };
     const allItems = [question, { char: 'B', txt: 'BRAVO' }];
@@ -91,5 +105,29 @@ describe('buildMcqOptions', () => {
     expect(options).toContain('KĄT');
     const wrong = options.filter((opt) => normalizeAnswer(opt) !== normalizeAnswer('KĄT'));
     wrong.forEach((opt) => expect(opt.includes('Ą')).toBe(true));
+  });
+
+  test('for Polish Ó, distractors must include exact Ó (not plain O)', () => {
+    const question = { char: 'Ó', txt: 'ÓSEMKA' };
+    const allItems = [
+      question,
+      { char: 'O', txt: 'OLGA' },
+      { char: 'O', txt: 'OKNO' },
+    ];
+    const distractorPool = {
+      Ó: ['ŁÓDŹ', 'ÓWCZESNY', 'MIÓD'],
+      O: ['OKNO', 'OLA', 'OGIEŃ', 'ORZECH'],
+    };
+
+    const options = buildMcqOptions({
+      question,
+      alphabetKey: 'polish',
+      allItems,
+      distractorPool,
+    });
+
+    expect(options).toContain('ÓSEMKA');
+    const wrong = options.filter((opt) => normalizeAnswer(opt) !== normalizeAnswer('ÓSEMKA'));
+    wrong.forEach((opt) => expect(opt).toContain('Ó'));
   });
 });
